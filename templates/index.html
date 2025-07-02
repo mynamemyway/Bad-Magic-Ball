@@ -1,0 +1,118 @@
+Хорошо, Neo. Вот твой HTML-файл с комментариями, указывающими, где меняются цвета.
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магический Шар 👹</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+            background-color: #494040;
+            /* Цвет фона всей страницы (светло-серый) */
+            color: #333;
+            /* Основной цвет текста на странице (темно-серый) */
+        }
+
+        h1 {
+            color: #8d002f;
+            /* Цвет заголовка H1 (фиолетовый) */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .author-name {
+            font-size: 0.6em;
+            color: #666;
+            /* Цвет текста "by mynamemyway" (серый) */
+            margin-left: 20px;
+        }
+
+        form {
+            background-color: #b3b3b3;
+            /* Цвет фона формы (белый) */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #3c3c3c;
+            /* Цвет рамки поля ввода (светло-серый) */
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #8d002f;
+            /* Цвет фона кнопки (фиолетовый) */
+            color: rgb(58, 58, 58);
+            /* Цвет текста на кнопке (белый) */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #94274c;
+            /* Цвет фона кнопки при наведении (более светлый фиолетовый) */
+        }
+
+        .output {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px dashed #8d002f;
+            /* Цвет рамки блока вывода (фиолетовый, пунктирный) */
+            border-radius: 8px;
+            background-color: #414141;
+            /* Цвет фона блока вывода (очень светло-фиолетовый/лавандовый) */
+        }
+
+        .question-text {
+            font-style: normal;
+            color: #666;
+            /* Цвет текста "Ваш вопрос: ..." (серый) */
+        }
+
+        .answer-text {
+            font-weight: bold;
+            color: #8d002f;
+            /* Цвет текста ответа шара (фиолетовый) */
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        {{ prefix }}
+        <span class="author-name">by mynamemyway</span>
+    </h1>
+
+    <form action="/ask" method="post">
+        <input type="text" id="question" name="question" placeholder="Задайте свой вопрос" size="50" required><br><br>
+        <button type="submit">Спросить Шар</button>
+    </form>
+
+    {% if question %}
+    <p class="question-text">Ваш вопрос: {{ question }}</p>
+    {% endif %}
+
+    {% if answer %}
+    <p class="answer-text">{{ answer }}</p>
+    {% endif %}
+</body>
+
+</html>
+```
